@@ -1,1 +1,0 @@
-<bound method JSONMixin.get_json of <Request 'http://localhost:5000/save' [POST]>>

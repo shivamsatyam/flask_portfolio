@@ -120,23 +120,5 @@ def portfolio(search_id):
 		
 
 
-@app.route('/download',methods=['POST'])
-def download():
-	try:
-		url = request.get_json()['url']
-		title = request.get_json()['title']
-		import pdfkit
-		pdfkit.configuration(wkhtmltopdf="E:\\hangman\\clock\\flask\\portfolio\\tatic\\useful\\wkhtmltopdf.exe")	
-
-		pdfkit.from_url(url,f"{title}.pdf")
-
-
-		return jsonify({"status":True})
-
-	except Exception as e:
-		raise e
-		return jsonify({"status":False})
-		
-
 
 app.run(debug=True)
