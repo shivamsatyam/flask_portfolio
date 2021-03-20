@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+	<!-- repeat(auto-fit,minmax(30px,40px)); -->
+</head>
+<body>
+	{{session}}
+	
+<header>
+	<div class="container">
+		<div class="container__header">
+			<div class="header__one">
+				<img src="{{url_for('static',filename='images/logo.jpg')}}" alt="">
+			</div>
+			<div class="header__two">
+				<ul>
+					<li><a href="">Home</a></li>
+					<li><a href="">About</a></li>
+					<li><a href="">Work</a></li>
+					<li><a href="">Services</a></li>
+					<li><a href="">Contact</a></li>
+					<li><a id="download">save</a></li>
+					
+				</ul>
+			</div>
+		</div>
+
+		<div class="container__banner">
+			<div class="box">
+				<h1 id="box1" class="header__text" contenteditable="">LOREM IPSUM ,</h1>
+                <h1 id="box2" class="header__text" contenteditable="">CONTRARY TO & DESIGNER</h1>
+                <h1 id="box3" class="header__text" contenteditable="">REPRODUCED BELOW</h1>
+			</div>
+		</div>
+	</div>
+</header>
+
+
+<section class="about_section">
+	<div class="about_box">
+		<div class="about_data">
+			<h1>About</h1>
+			<div class="about_data_box">
+				<div class="image">
+					<img src="{{url_for('static',filename='images/pic-9.jpg')}}" alt="" class="portfolio_image" alt="Image not found" style="width: 202px; height: 202px;">
+				</div>
+				<div class="data" contenteditable="">
+					This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare
+
+<br> odio.<br>
+This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. .
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="about_box" id="box-grid">
+		<div class="portfolio_data">
+			<div class="knowledge">
+				<span><h1 contenteditable="" class="knowledge_known">HtMl css </h1></span>
+				<h1 contenteditable="" class="percentage_maker">75%</h1>
+			</div>
+			<div class="knowledge_width"></div>
+
+		</div>
+		<div class="portfolio_data">
+			<div class="knowledge">
+				<span><h1 contenteditable="" class="knowledge_known">HtMl css </h1></span>
+				<h1 contenteditable="" class="percentage_maker">85%</h1>
+			</div>
+			<div class="knowledge_width"></div>
+		</div>
+		<div class="portfolio_data">
+			<div class="knowledge">
+				<span><h1 contenteditable="" class="knowledge_known">HtMl css </h1></span>
+				<h1 contenteditable="" class="percentage_maker">95%</h1>
+			</div>
+			<div class="knowledge_width"></div>
+		</div>
+		<div class="portfolio_data">
+			<div class="knowledge">
+				<span><h1 contenteditable="" class="knowledge_known">HtMl css </h1></span>
+				<h1 contenteditable="" class="percentage_maker">75%</h1>
+			</div>
+			<div class="knowledge_width"></div>
+		</div>
+		<div class="portfolio_data">
+			<div class="knowledge">
+				<span><h1 contenteditable="" class="knowledge_known">HtMl css </h1></span>
+				<h1 contenteditable="" class="percentage_maker">15%</h1>
+			</div>
+			<div class="knowledge_width"></div>
+		</div>
+		<div class="portfolio_data">
+			<div class="knowledge">
+				<span><h1 contenteditable="" class="knowledge_known">HtMl css </h1></span>
+				<h1 contenteditable="" class="percentage_maker">75%</h1>
+			</div>
+			<div class="knowledge_width"></div>
+		</div>
+	</div>
+</section>
+
+
+<section class="project">
+	<div class="project__first">
+		<h1>Our Works</h1>
+		<p class="work" contenteditable="">This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio.</p>
+	</div>
+	<div class="project__second"></div>
+
+<div class="project__third">
+	<div class="project__image">
+		<div class="project__box"><img src="{{url_for('static',filename='images/pic-1.jpg')}}" alt=""></div>
+		<div class="project__box"><img src="{{url_for('static',filename='images/pic-2.jpg')}}" alt=""></div>
+		<div class="project__box"><img src="{{url_for('static',filename='images/pic-3.jpg')}}" alt=""></div>
+		<div class="project__box"><img src="{{url_for('static',filename='images/pic-4.jpg')}}" alt=""></div>
+		<div class="project__box"><img src="{{url_for('static',filename='images/pic-5.jpg')}}" alt=""></div>
+		<div class="project__box"><img src="{{url_for('static',filename='images/pic-6.jpg')}}" alt=""></div>
+		<div class="project__box"><img src="{{url_for('static',filename='images/pic-7.jpg')}}" alt=""></div>
+		<div class="project__box"><img src="{{url_for('static',filename='images/pic-8.jpg')}}" alt=""></div>
+	</div>
+</div>
+
+</section>
+
+<script type="text/javascript" src="{{url_for('static',filename='js/index.js')}}"></script>
+
+<script>
+
+let download = document.getElementById('download')
+
+download.addEventListener('click',(e) => {
+
+	title = prompt("Enter your title !important")
+	description = prompt("Enter your description !important")
+
+	text = document.all
+
+	let data = document.all[0].innerHTML;
+
+
+
+	console.log(data)
+
+  	let xhr = new XMLHttpRequest()
+	 xhr.open('POST','/save')
+
+	 xhr.setRequestHeader('Content-Type','application/json')
+
+
+	 xhr.onload = function(){
+			
+		console.log(this.responseText)
+		let response = JSON.parse(this.responseText)
+
+		if (response['status']==true){
+			alert("Your code is succesfully submitted")
+		}else{
+			alert("Some error occured please check that you must be signin")
+
+		} 	
+
+	}
+
+
+
+	console.log(data)
+
+  	params = {"data":String(data),"title":title,"desc":description}
+  	xhr.send(JSON.stringify(params))
+
+
+});
+
+</script>
+</body>
+</html>

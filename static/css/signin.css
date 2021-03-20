@@ -1,0 +1,86 @@
+
+
+
+.siginin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.box{
+width: 550px;
+}
+
+
+.chooser{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.chooser_option{
+    text-align: center;
+    font-weight: 700;
+    font-family: sans-serif;
+    height: 68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 21px;
+    letter-spacing: 0.4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+	background-color: aliceblue;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

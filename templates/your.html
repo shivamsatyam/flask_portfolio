@@ -1,0 +1,127 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
+
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/min.css')}}">
+
+  <link rel="stylesheet" href="/css/min.css">
+
+
+	<title>Shivam medium your post</title>
+</head>
+<body>
+<header class="text-gray-600 body-font">
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-purple-500 rounded-full" viewBox="0 0 24 24">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+      </svg>
+      <span class="ml-3 text-xl">Shivam medium</span>
+    </a>
+    <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+      <a class="mr-5 hover:text-gray-900" href="/signin">Sign in</a>
+      <a class="mr-5 hover:text-gray-900" href="/">Home</a>
+      <a class="mr-5 hover:text-gray-900">Log out</a>
+      <a class="mr-5 hover:text-gray-900" href="/your">your post</a>
+    </nav>
+     <a href="/post"> 
+    <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Add Post
+      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+        <path d="M5 12h14M12 5l7 7-7 7"></path>
+      </svg>
+    </button>
+    </a>
+  </div>
+</header>
+
+
+
+
+<section class="text-gray-600 body-font">
+  <div class="container px-5 py-24 mx-auto flex flex-wrap">
+    <div class="flex flex-wrap -m-4">
+     
+
+{% for post in data %}
+        <div class="p-4 lg:w-1/2 md:w-full">
+        <div class="flex border-2 rounded-lg border-gray-200 border-opacity-50 p-8 sm:flex-row flex-col">
+          <div class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <div class="flex-grow">
+            <h2 class="text-gray-900 text-lg title-font font-medium mb-3">{{post.title}}</h2>
+            <p class="leading-relaxed text-base">{{post.desc}}</p>
+            <a  class="mt-3 text-indigo-500 inline-flex items-center" href="/portfolio/{{post._id}}">Learn More
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+
+            <button id="click" class="delete_content inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">&nbsp; &nbsp;Download&nbsp;&nbsp;
+      
+            </button>
+
+          </div>
+        </div>
+      </div>
+     
+  {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+
+<script>
+
+
+let download = document.getElementById('click')
+
+
+download.addEventListener('click',(e) => {
+let link = e.target.parentNode.querySelector('a')['href']
+let text = e.target.parentNode.querySelector('h2').innerText
+console.log(link)
+  
+let xhr = new XMLHttpRequest()
+
+xhr.open('POST','http://localhost:3000/download')
+
+xhr.setRequestHeader('Content-Type','application/json')
+ xhr.onload = function(){
+      
+    console.log(this.responseText)
+    let response = JSON.parse(this.responseText)
+
+    if (response['status']==true){
+      alert("Your code is succesfully submitted")
+    }else{
+      alert("Some error occured please check that you must be signin")
+
+    }   
+
+  }
+
+
+params = {"url":String(link),"title":String(text)}
+
+
+xhr.send(JSON.stringify(params))
+
+});
+
+
+
+</script>
+
+
+</body>
+</html>

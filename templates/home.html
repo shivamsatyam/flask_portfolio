@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/signin.css') }}">
+
+	<style>
+
+
+*{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+	background-color: aliceblue;
+
+}
+
+
+		.container{
+
+}
+
+.header{    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.header h1{
+    display: flex;
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size: 3.2rem;
+    letter-spacing: 1.2px;
+}
+.header h1 span{
+    background-color: #32c766;
+    width: 21px;
+    height: 30px;
+    margin-top: 14px;
+    margin-left: 7px;
+}
+.header h2{
+	    color: #39424e;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.8;
+    font-family: sans-serif;
+}
+
+
+
+
+.siginin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.box{
+    width: 550px;
+    background-color: white;
+    position: relative;
+    z-index: 56;
+    box-shadow: 0px 2px 36px -24px black;
+}
+
+
+.chooser{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.chooser_option{
+    text-align: center;
+    font-weight: 700;
+    font-family: sans-serif;
+    height: 68px;
+    /*position: relative;*/
+
+    display: flex;
+    background-color:white;
+    justify-content: center;
+    align-items: center;
+    font-size: 21px;
+    letter-spacing: 0.4px;
+}
+
+
+
+.input{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group{
+    text-align: center;
+    /* font-family: 'UIKitIcon'; */
+    margin: 14px 1px;
+    background-color: white;
+}
+.input-group input{
+	    width: 89%;
+    height: 39px;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding-left: 14px;
+    background-color: white;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid red;
+}
+
+
+.signin-btn{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.signin-btn button{
+    width: 152px;
+    height: 43px;
+    background-color: #1ba94c;
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border: navajowhite;
+    box-shadow: 1px 3px 2px 1px #1ba94c;
+    cursor: pointer;
+    margin: 29px 22px
+}
+
+#signin-btn{
+	box-shadow:3px 0px 9px -3px black;
+}
+
+#login-btn{
+
+}
+
+	</style>
+</head>
+<body>
+	
+	 {% with messages = get_flashed_messages(with_categories=true)%}
+    {% if messages %}
+    {% for category,message in messages %}
+   
+    	<div style="font-size: 2rem">{{message}}</div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+<div class="container">
+	<div class="header">
+		<h1>ShivamRank <span></span></h1>
+
+		<h2>For the Developers</h2>
+
+	</div>
+</div>
+
+
+<section class="siginin">
+	<div class="box">
+		<div class="chooser">
+			<div class="chooser_option" id="signin-btn">Signin</div>
+			<div class="chooser_option" id="login-btn">Login</div>
+		</div>
+
+
+
+	<form action="/signin" method="post" id="siginin-form">
+			<div class="input">
+		<div id="input1" class="input-group" >
+			<input type="text" placeholder="First Name & Last Name" name="username"  required="">
+		</div>
+		<div id="input2" class="input-group" placeholder="Email">
+			<input type="text" placeholder="Email" name="email" required="">
+		</div>
+		<div id="input3" class="input-group" >
+			<input type="text" placeholder="Password" name="password" required="">
+		</div>
+
+		<div class="signin-btn">
+			<button>Siginin</button>
+		</div>
+	</div>
+
+	</form>	
+
+<form action="/login" method="post" id="login-form" style="display: none;">
+			
+		<div id="input2" class="input-group" placeholder="Email">
+			<input type="text" placeholder="Email" name="email" required="">
+		</div>
+		<div id="input3" class="input-group" >
+			<input type="text" placeholder="Password" name="password" required="">
+		</div>
+
+		<div class="signin-btn">
+			<button>Login</button>
+		</div>
+	</div>
+
+	</form>	
+
+	</div>
+
+</section>
+
+
+<script type="text/javascript" src="{{url_for('static',filename='js/siginin.js')}}"></script>
+
+
+<script>
+	let signin_btn = document.getElementById('signin-btn')
+	let login_btn = document.getElementById('login-btn')
+	let login_form = document.getElementById('login-form')
+	let siginin_form = document.getElementById('siginin-form')
+
+	signin_btn.addEventListener('click',(e) => {
+	  	login_form.style.display = 'none'
+	  	siginin_form.style.display = 'block'
+	  	signin_btn.style.boxShadow = '1px 3px 2px 1px black'
+	  	login_btn.style.backgroundColor = 'aliceblue'
+	  	signin_btn.style.backgroundColor = 'white'
+
+	});
+
+
+	login_btn.addEventListener('click',(e) => {
+	  	login_form.style.display = 'block'
+	  	siginin_form.style.display = 'none'
+	  	login_btn.style.boxShadow = '1px 3px 2px 1px black'
+	  	signin_btn.style.backgroundColor = 'aliceblue'
+	  	login_btn.style.backgroundColor = 'white'
+
+	});
+
+
+
+
+</script>
+
+</body>
+</html>
